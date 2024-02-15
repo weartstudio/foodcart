@@ -1,0 +1,16 @@
+{
+  "name": "foodcart",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "sass": "sass --watch assets/style/main.scss style.css",
+    "tailwind":"npx tailwindcss -i ./assets/tailwind.css -o ./assets/style.css --watch"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "devDependencies": {
+    "tailwindcss": "^3.4.1"
+  }
+}

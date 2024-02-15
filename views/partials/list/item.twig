@@ -1,0 +1,26 @@
+<div class="grid grid-cols-[1fr_auto] gap-8 px-6 my-8">
+
+	<div>
+
+		<div class="flex justify-between mb-2 border-b border-dashed">
+			<span class="font-semibold tracking-wider uppercase">{{ product.title }}</span>
+			<span class="font-semibold tracking-wider uppercase">{{ product.price }}</span>
+		</div>
+
+		<div class="text-xs max-w-[600px]">
+			{{ product.content }}
+		</div>
+
+	</div>
+
+	<div>
+		<a href="#" class="flex px-3 py-2 border hover:text-white hover:bg-slate-600">
+			<i class="text-2xl bi bi-basket2"></i>
+		</a>
+	</div>
+
+</div>
+
+<pre>
+	{{ dump(product) }}
+</pre>

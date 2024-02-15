@@ -1,0 +1,42 @@
+{# secondary-menu #}
+<div class="bg-black">
+  <nav class="container flex gap-3 py-2 text-xs">
+    <a class="text-slate-100" href="#nyitvatartas">
+      <i class="mr-1 bi bi-facebook"></i> Facebook
+    </a>
+    <a class="text-slate-100" href="#nyitvatartas">
+      <i class="mr-1 bi bi-instagram"></i> Facebook
+    </a>
+
+    <div class="mr-auto"></div>
+
+    {% for item in menuSecondary.get_items %}
+      <a class="{{ item.classes }} text-slate-100" target="{{ item.target }}" href="{{ item.link }}">{{ item.title }}</a>
+    {% endfor %}
+    <a class="text-slate-100" href="#nyitvatartas">Nyitvatartás</a>
+    <a class="text-slate-100" href="#kiszallitas">Kiszállítás</a>
+    <a class="text-slate-100" href="#kapcsolat">Kapcsolat</a>
+  </nav>
+</div>
+
+{# main-menu #}
+<div class="container flex items-center py-2 min-h-[100px]">
+
+  <div class="flex items-center gap-3">
+    <a class="text-2xl" href="{{ site.link }}">{{ site.name }}</a>
+    <div class="px-2 bg-green-500 rounded">
+      <span class="uppercase text-white text-[12px]/3 tracking-wider font-semibold">nyitva 11-22</span>
+    </div>
+  </div>
+
+  <nav class="flex gap-4 mx-auto">
+    <a class="font-semibold tracking-wider uppercase hover:underline hover:underline-offset-4 hover:decoration-2" href="/#etlap">Étlap</a>
+    <a class="font-semibold tracking-wider uppercase hover:underline hover:underline-offset-4 hover:decoration-2" href="/profile">Rendeléseim</a>
+  </nav>
+
+  <div class="flex items-center gap-3">
+    <span>2 elem / <strong>4500 ft</strong></span>
+    <i class="text-2xl bi bi-basket2"></i>
+  </div>
+
+</div>
