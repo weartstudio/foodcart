@@ -1,17 +1,29 @@
 {% extends "base.twig" %}
 
 {% block content %}
-<section class="row">
 
-  {# items #}
-  <div class="col-lg">
-    {% include 'partials/list/items.twig' with { 'products': products }  %}
+<div class="row">
+  <div class="col">
+    Katgóriák
   </div>
-
-  {# kosár #}
   <div class="col-lg-3">
     {% include 'partials/list/cart.twig' %}
   </div>
+</div>
 
-</section>
+
+
+
+  {% for productcat in foods %}
+
+    <h2 class="mt-5 h4">{{ productcat.cat }}</h2>
+
+    <div class="g-3 row">
+      {% for product in productcat.foods %}
+        {% include 'partials/list/item.twig' %}
+      {% endfor %}
+    </div>
+
+  {% endfor %}
+
 {% endblock %}

@@ -1,26 +1,27 @@
-<div class="grid grid-cols-[1fr_auto] gap-8 px-6 my-8">
+<div class="col-lg-4">
+	<div class="shadow-sm card">
+		<div class="card-body">
+			<div class="row">
+				<div class="col">
 
-	<div>
+					<h4 class="h6 fw-semibold">
+						<span>{{ product.title }}</span>
+					</h4>
 
-		<div class="flex justify-between mb-2 border-b border-dashed">
-			<span class="font-semibold tracking-wider uppercase">{{ product.title }}</span>
-			<span class="font-semibold tracking-wider uppercase">{{ product.price }}</span>
+					<div class="text fs-xs">
+						{{ product.content }}
+					</div>
+
+					<p class="price">
+						<span>{{ product.price }}</span>
+					</p>
+
+				</div>
+
+				<div class="col-lg-auto">
+					<button href="#" class="btn btn-outline-secondary bi bi-plus"></button>
+				</div>
+			</div>
 		</div>
-
-		<div class="text-xs max-w-[600px]">
-			{{ product.content }}
-		</div>
-
 	</div>
-
-	<div>
-		<a href="#" class="flex px-3 py-2 border hover:text-white hover:bg-slate-600">
-			<i class="text-2xl bi bi-basket2"></i>
-		</a>
-	</div>
-
 </div>
-
-<pre>
-	{{ dump(product) }}
-</pre>

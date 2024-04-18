@@ -32,7 +32,52 @@ if (is_singular('product')) {
 			$term_id = $queried_object->term_id;
 			$context['category'] = get_term($term_id, 'product_cat');
 			$context['title'] = single_term_title('', false);
+		}
+
+	$foods = [];
+
+	$args = array(
+		// 'number'     => $number,
+		'orderby'   => 'title',
+		'order'     => 'ASC',
+		// 'hide_empty' => $hide_empty,
+		// 'include'   => $ids
+	);
+
+	$product_categories = get_terms( 'product_cat', $args );
+	$count = count($product_categories);
+
+	if ( $count > 0 ){
+		foreach ( $product_categories as $product_category ) {
+
+			$args = array(
+			'posts_per_page' => -1,
+			'tax_query' => array(
+				'relation' => 'AND',
+				array(
+					'taxonomy' => 'product_cat',
+					'field' => 'slug',
+					// 'terms' => 'white-wines'
+					'terms' => $product_category->slug
+					)
+				),
+				'post_type' => 'product',
+				'orderby' => 'title,'
+			);
+
+			$item = [];
+			$item['cat'] = $product_category->name;
+			$item['foods'] = Timber::get_posts($args);
+			$foods[] = $item;
+
+			// $products = new WP_Query( $args );
+
+		}
 	}
+
+	$context['foods'] = $foods;
+
 
 	Timber::render('views/woo/archive.twig', $context);
 }
+
