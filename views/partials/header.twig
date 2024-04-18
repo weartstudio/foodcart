@@ -4,20 +4,20 @@
 
     <div class="collapse navbar-collapse justify-content-between" id="mainMenu">
 
-      <ul class="navbar-nav small">
-        <li class="nav-item"><a class="p-1 nav-link" href="/#etlap"><i class="mr-1 bi bi-facebook"></i> Facebook</a></li>
-        <li class="nav-item"><a class="p-1 nav-link" href="/#etlap"><i class="mr-1 bi bi-instagram"></i> Instagram</a></li>
+      <ul class="navbar-nav fs-xs">
+        <li class="nav-item"><a class="nav-link" href="/#etlap"><i class="mr-1 bi bi-facebook"></i> Facebook</a></li>
+        <li class="nav-item"><a class="nav-link" href="/#etlap"><i class="mr-1 bi bi-instagram"></i> Instagram</a></li>
       </ul>
 
-      <ul class="navbar-nav small">
+      <ul class="navbar-nav fs-xs">
         {% for item in menuSecondary.get_items %}
           <li class="nav-item {{ item.classes }}">
             <a class="nav-link" target="{{ item.target }}" href="{{ item.link }}">{{ item.title }}</a>
           </li>
         {% endfor %}
-        <li class="nav-item"><a class="p-1 nav-link" href="/#etlap">Nyitvatartás</a></li>
-        <li class="nav-item"><a class="p-1 nav-link" href="/#etlap">Kiszállítás</a></li>
-        <li class="nav-item"><a class="p-1 nav-link" href="/profile">Kapcsolat</a></li>
+        <li class="nav-item"><a class="nav-link" href="/#etlap">Nyitvatartás</a></li>
+        <li class="nav-item"><a class="nav-link" href="/#etlap">Kiszállítás</a></li>
+        <li class="nav-item"><a class="nav-link" href="/profile">Kapcsolat</a></li>
       </ul>
 
     </div>

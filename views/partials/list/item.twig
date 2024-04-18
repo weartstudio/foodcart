@@ -1,4 +1,4 @@
-<div class="col-lg-4">
+<div class="col-lg-6">
 	<div class="shadow-sm card">
 		<div class="card-body">
 			<div class="row">
@@ -19,7 +19,10 @@
 				</div>
 
 				<div class="col-lg-auto">
-					<button href="#" class="btn btn-outline-secondary bi bi-plus"></button>
+					<div class="position-relative">
+						<img src="{{ product.thumbnail.src('thumbnail') }}" class="img-fluid" alt="Kép a(z) {{ post.title }}" style="max-width: 100px" />
+						<button href="#" class="bottom-0 end-0 btn btn-light bi bi-plus position-absolute"></button>
+					</div>
 				</div>
 			</div>
 		</div>
