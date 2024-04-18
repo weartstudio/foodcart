@@ -25,6 +25,12 @@ class StarterSite extends Site {
 		$context['menuPrimary']  = Timber::get_menu('primary_navigation');
 		$context['menuFooter']  = Timber::get_menu('footer_navigation');
 
+		$context['wooCartUrl'] = wc_get_cart_url();
+		$context['wooCheckoutUrl'] = wc_get_checkout_url();
+		$context['wooAccountUrl'] = wc_get_page_permalink( 'myaccount' );
+		$context['wooShopUrl'] = wc_get_page_permalink( 'shop' );
+		$context['wooOrdersUrl'] = wc_get_account_endpoint_url( 'orders' );
+
 		return $context;
 	}
 

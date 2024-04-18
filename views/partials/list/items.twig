@@ -1,20 +1,21 @@
 {# termékek #}
-<div class="border" x-data="{ open: false }">
+<div class="accordion" id="accordionExample">
 
-	<div @click="open = ! open" class="cursor-pointer">
+  <div class="accordion-item">
+    <h2 class="accordion-header">
+      <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
+        Pizza
+      </button>
+    </h2>
+    <div id="collapseOne" class="accordion-collapse collapse show" data-bs-parent="#accordionExample">
+      <div class="accordion-body">
 
-		<div	class="flex justify-between px-5 py-3 font-semibold hover:bg-slate-100">
-			<span class="tracking-widest uppercase">Pizza</span>
-			<i class="bi" :class="!open ? 'bi-arrow-bar-down' : 'bi-arrow-bar-up'"></i>
-		</div>
+				{% for product in products %}
+					{% include 'partials/list/item.twig' %}
+				{% endfor %}
 
-	</div>
-
-	<div class="p-4 border-t" x-show="open">
-
-		{% for product in products %}
-			{% include 'partials/list/item.twig' %}
-		{% endfor %}
-	</div>
+      </div>
+    </div>
+  </div>
 
 </div>

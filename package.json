@@ -5,12 +5,13 @@
   "main": "index.js",
   "scripts": {
     "sass": "sass --watch assets/style/main.scss style.css",
-    "tailwind":"npx tailwindcss -i ./assets/tailwind.css -o ./assets/style.css --watch"
+    "tailwind": "npx tailwindcss -i ./assets/tailwind.css -o ./assets/style.css --watch"
   },
   "keywords": [],
   "author": "",
   "license": "ISC",
-  "devDependencies": {
-    "tailwindcss": "^3.4.1"
+  "dependencies": {
+    "bootstrap": "^5.3.3",
+    "sass": "^1.75.0"
   }
 }

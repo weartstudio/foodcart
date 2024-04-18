@@ -1,18 +1,17 @@
 {% extends "base.twig" %}
 
 {% block content %}
+<section class="row">
 
+  {# items #}
+  <div class="col-lg">
+    {% include 'partials/list/items.twig' with { 'products': products }  %}
+  </div>
 
-  <section class="grid grid-cols-[1fr_minmax(300px,_350px)] gap-10 my-8">
-    {# items #}
-    <div class="grid gap-4">
-      {% include 'partials/list/items.twig' with { 'products': products }  %}
-    </div>
-
-    {# kosár #}
+  {# kosár #}
+  <div class="col-lg-3">
     {% include 'partials/list/cart.twig' %}
+  </div>
 
-  </section>
-
-
+</section>
 {% endblock %}
