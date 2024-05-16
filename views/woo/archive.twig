@@ -2,9 +2,11 @@
 
 {% block content %}
 
-<div class="row">
+<div class="row g-3">
 
   <div class="col">
+		<h2 class="h4">Étlap</h2>
+
     <div class="accordion" id="etlap">
 
     {% for foodgroup in foods %}
@@ -18,36 +20,47 @@
 
       <div id="{{foodgroup.catslug}}" class="accordion-collapse collapse show">
         <div class="accordion-body">
+          <div class="gap-4 vstack">
+            {% for product in foodgroup.foods %}
+              <div>
+                <div class="row g-3">
 
-          {% for product in foodgroup.foods %}
-            <div class="my-3">
-              <div class="row g-3">
-                <div class="col-auto">
-                  <img src="{{ product.item.thumbnail.src('thumbnail') }}" class="img-fluid" alt="Kép a(z) {{ post.title }}" style="max-width: 80px" />
-                </div>
-                <div class="col">
-                  <div class="border-bottom">
-                  <div class="row text-uppercase fw-bold">
-                    <span class="col">{{ product.product.get_name }}</span>
-                    <span class="col-auto">{{ product.product.get_price_html }}</span>
-                  </div>
-                  </div>
-                  <div class="small">{{ product.product.get_description }}</div>
-                </div>
-                <div class="col-auto">
-                  <div class="gap-2 vstack">
-                    <a href="{{ site.url }}/{{ product.product.add_to_cart_url }}" class="btn btn-primary">
-                      <i class="bi bi-cart-plus"></i> Kosárba
-                    </a>
-                    <a href="{{ site.url }}/{{ product.product.add_to_cart_url }}" class="btn btn-primary">
-                      <i class="bi bi-cart-plus"></i> Egyedi
+                  {# kép #}
+                  <div class="col-md-auto">
+                    <a href="{{ product.item.link }}">
+                      <img src="{{ product.item.thumbnail.src('thumbnail') }}" class="img-fluid" alt="Kép a(z) {{ post.title }}" style="max-width: 80px" />
                     </a>
                   </div>
+
+                  {# cím és ár #}
+                  <div class="col-sm">
+                    <div class="border-bottom">
+                    <div class="row text-uppercase fw-bold">
+                      <span class="col"><a href="{{ product.item.link }}" class="text-reset text-decoration-none">{{ product.product.get_name }}</a></span>
+                      <span class="col-auto">{{ product.product.get_price_html }}</span>
+                    </div>
+                    </div>
+                    <div class="small">
+                      {{ product.product.get_description }}
+                    </div>
+                  </div>
+
+                  {# kosárba #}
+                  <div class="col-auto">
+                    <div class="gap-2 vstack">
+                      <a href="{{ site.url }}/{{ product.product.add_to_cart_url }}" class="btn btn-primary">
+                        <i class="bi bi-cart-plus"></i> Kosárba
+                      </a>
+                      <a href="{{ product.item.link }}" class="border-0 btn btn-sm btn-outline-secondary">
+                        Egyedi összeállítás
+                      </a>
+                    </div>
+                  </div>
+
                 </div>
               </div>
-            </div>
-          {% endfor %}
-
+            {% endfor %}
+          </div>
         </div>
       </div>
 

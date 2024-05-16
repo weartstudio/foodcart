@@ -1,12 +1,45 @@
-<div>
-	<div class="p-4 pt-0 bg-slate-100">
+<div class="position-sticky">
 
-		<div class="flex justify-center">
-			<div class="flex inline-flex items-center gap-2 px-4 pb-2 -translate-y-3 bg-white ">
-				<i class="bi bi-basket2"></i>
-				<span class="text-xs uppercase">Kosár</span>
+		<h2 class="h4">Kosár</h2>
+
+		{% if cart|length > 0 %}
+			<ul class="list-group small">
+				{% for item in cart %}
+
+					<li class="list-group-item">
+						<div class="gap-2 hstack">
+
+							<div class="col">
+								<a href="{{ item.url }}" class="text-reset text-decoration-none justify-content-between hstack">
+									<span>{{ item.title }}</span>
+
+									<div>
+										<span class="fw-bold">{{ item.quantity }} x</span>
+										<span class="text-sm badge text-bg-secondary">{{ item.price }}</span>
+									</div>
+								</a>
+							</div>
+						</div>
+					</li>
+
+				{% endfor %}
+				<li class="list-group-item fw-bold hstack justify-content-between">
+					<span>Összesen</span>
+					<span>{{ cart_total }}</span>
+				</li>
+			</ul>
+
+			<div class="mt-4 justify-content-between hstack">
+				<a href="{{ wooCartUrl }}" class="border-0 btn btn-sm btn-outline-secondary">Módosítom</a>
+				<a href="{{ wooCheckoutUrl }}" class="btn btn-primary">Tovább a pénztárhoz</a>
 			</div>
-		</div>
+		{% else %}
 
-	</div>
+		<ul class="list-group">
+			<li class="list-group-item">
+				Jelenleg üres a kosarad.
+			</li>
+		</ul>
+
+		{% endif %}
 </div>
