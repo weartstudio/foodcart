@@ -1,6 +1,7 @@
 {
     "require": {
-        "timber/timber": "^2.0"
+        "timber/timber": "^2.0",
+        "mindkomm/timber-integration-woocommerce": "^1.0"
     },
     "config": {
         "allow-plugins": {

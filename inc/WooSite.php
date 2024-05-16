@@ -18,7 +18,7 @@ class WooSite extends Site {
 	}
 
 	function remove_metabox_excerpt() {
-
+		add_theme_support( 'woocommerce' );
 		// e.g. remove short description
 		remove_meta_box( 'postexcerpt', 'product', 'normal' );
 		remove_meta_box( 'tagsdiv-product_tag', 'product', 'side' );

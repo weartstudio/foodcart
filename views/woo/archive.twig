@@ -3,27 +3,66 @@
 {% block content %}
 
 <div class="row">
+
   <div class="col">
-    Katgóriák
+    <div class="accordion" id="etlap">
+
+    {% for foodgroup in foods %}
+    <div class="accordion-item">
+
+      <h2 class="accordion-header">
+        <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#{{foodgroup.catslug}}" aria-expanded="true">
+        {{ foodgroup.cat }}
+        </button>
+      </h2>
+
+      <div id="{{foodgroup.catslug}}" class="accordion-collapse collapse show">
+        <div class="accordion-body">
+
+          {% for product in foodgroup.foods %}
+            <div class="my-3">
+              <div class="row g-3">
+                <div class="col-auto">
+                  <img src="{{ product.item.thumbnail.src('thumbnail') }}" class="img-fluid" alt="Kép a(z) {{ post.title }}" style="max-width: 80px" />
+                </div>
+                <div class="col">
+                  <div class="border-bottom">
+                  <div class="row text-uppercase fw-bold">
+                    <span class="col">{{ product.product.get_name }}</span>
+                    <span class="col-auto">{{ product.product.get_price_html }}</span>
+                  </div>
+                  </div>
+                  <div class="small">{{ product.product.get_description }}</div>
+                </div>
+                <div class="col-auto">
+                  <div class="gap-2 vstack">
+                    <a href="{{ site.url }}/{{ product.product.add_to_cart_url }}" class="btn btn-primary">
+                      <i class="bi bi-cart-plus"></i> Kosárba
+                    </a>
+                    <a href="{{ site.url }}/{{ product.product.add_to_cart_url }}" class="btn btn-primary">
+                      <i class="bi bi-cart-plus"></i> Egyedi
+                    </a>
+                  </div>
+                </div>
+              </div>
+            </div>
+          {% endfor %}
+
+        </div>
+      </div>
+
+    </div>
+    {% endfor %}
+
   </div>
+  </div>
+
   <div class="col-lg-3">
     {% include 'partials/list/cart.twig' %}
   </div>
+
 </div>
 
 
-
-
-  {% for productcat in foods %}
-
-    <h2 class="mt-5 h4">{{ productcat.cat }}</h2>
-
-    <div class="g-3 row">
-      {% for product in productcat.foods %}
-        {% include 'partials/list/item.twig' %}
-      {% endfor %}
-    </div>
-
-  {% endfor %}
 
 {% endblock %}

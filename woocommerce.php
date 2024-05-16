@@ -1,5 +1,7 @@
 <?php
 
+Timber\Integrations\WooCommerce\WooCommerce::render_default_template();
+
 $context = Timber::context();
 $context['sidebar'] = Timber::get_widgets('shop-sidebar');
 
@@ -67,7 +69,18 @@ if (is_singular('product')) {
 
 			$item = [];
 			$item['cat'] = $product_category->name;
-			$item['foods'] = Timber::get_posts($args);
+			$item['catslug'] = $product_category->slug;
+			// $item['foods'] = Timber::get_posts($args);
+
+			$item['foods'] = [];
+			$foods_posts = Timber::get_posts($args);
+			foreach( $foods_posts as $food ){
+				$p = [];
+				$p['item'] = $food;
+				$p['product'] = wc_get_product($food->ID);
+				// var_dump($food);
+				$item['foods'][]=$p;
+			}
 			$foods[] = $item;
 
 			// $products = new WP_Query( $args );

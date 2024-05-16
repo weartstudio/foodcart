@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "1ed487f8fe786141d4f57b38eaed80bd",
+    "content-hash": "9a47ad9d40120e845558cf8008c22b4b",
     "packages": [
         {
             "name": "composer/installers",
@@ -150,6 +150,55 @@
                 }
             ],
             "time": "2022-08-20T06:45:11+00:00"
+        },
+        {
+            "name": "mindkomm/timber-integration-woocommerce",
+            "version": "1.0.0",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/mindkomm/timber-integration-woocommerce.git",
+                "reference": "bddcccba2fe7d58d53e81fc8f5d293fdc6e25b57"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/mindkomm/timber-integration-woocommerce/zipball/bddcccba2fe7d58d53e81fc8f5d293fdc6e25b57",
+                "reference": "bddcccba2fe7d58d53e81fc8f5d293fdc6e25b57",
+                "shasum": ""
+            },
+            "require": {
+                "php": "^7.4 || ^8.0",
+                "timber/timber": "^2.0"
+            },
+            "type": "library",
+            "autoload": {
+                "psr-4": {
+                    "Timber\\Integrations\\WooCommerce\\": "lib/"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Lukas Gächter",
+                    "email": "lukas.gaechter@mind.ch",
+                    "homepage": "https://www.mind.ch"
+                }
+            ],
+            "description": "WooCommerce integration for Timber.",
+            "keywords": [
+                "integration",
+                "timber",
+                "twig",
+                "woocommerce"
+            ],
+            "support": {
+                "docs": "https://github.com/mindkomm/timber-integration-woocommerce#documentation",
+                "issues": "https://github.com/mindkomm/timber-integration-woocommerce/issues",
+                "source": "https://github.com/mindkomm/timber-integration-woocommerce"
+            },
+            "time": "2024-05-08T09:54:00+00:00"
         },
         {
             "name": "symfony/polyfill-ctype",
@@ -554,5 +603,5 @@
     "prefer-lowest": false,
     "platform": [],
     "platform-dev": [],
-    "plugin-api-version": "2.3.0"
+    "plugin-api-version": "2.6.0"
 }
